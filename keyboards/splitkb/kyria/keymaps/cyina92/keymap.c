@@ -202,9 +202,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-------------------------------------------.                              ,-------------------------------------------.
  * |  Tab   |   V  |   .  |   O  |   U  |   Ä  |                              |   Q  |   G  |   L  |   H  |   F  |   J    |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |Ctrl/Esc|   C  |   A  |   E  |   I  |   Y  |                              |   B  |   T  |   R  |   N  |   S  |   ß    |
+ * |Ctrl/Esc|   C  |   A  |   E  |   I  |   Z  |                              |   B  |   T  |   R  |   N  |   S  |   ß    |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * | LShift |   Z  |   X  |   ,  |   Ü  |   Ö  |      |CapsLk|  |F-keys|      |   P  |   D  |   W  |   M  |   K  | RShift |
+ * | LShift |   Y  |   X  |   ,  |   Ü  |   Ö  |      |CapsLk|  |F-keys|      |   P  |   D  |   W  |   M  |   K  | RShift |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
  *                        |Adjust| LGUI | LAlt/| Bksp | Nav  |  | Sym  | Space| AltGr| RGUI | Menu |
  *                        |      |      | Enter|      |      |  |      |      |      |      |      |
@@ -212,8 +212,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
     [_VOU] = LAYOUT(
       KC_TAB , KC_V   , KC_DOT, KC_O   , KC_U   , KC_QUOT,                                   KC_Q  , KC_G   , KC_L  , KC_H, KC_F, KC_J   ,
-      CTL_ESC, KC_C   , KC_A  , KC_E   , KC_I   , KC_Y   ,                                   KC_B  , KC_T   , KC_R  , KC_N, KC_S, KC_MINS,
-      KC_LSFT, KC_Z   , KC_X  , KC_COMM, KC_LBRC, KC_SCLN, _______, KC_CAPS, FKEYS, _______, KC_P  , KC_D   , KC_W  , KC_M, KC_K, KC_RSFT,
+      CTL_ESC, KC_C   , KC_A  , KC_E   , KC_I   , KC_Z   ,                                   KC_B  , KC_T   , KC_R  , KC_N, KC_S, KC_MINS,
+      KC_LSFT, KC_Y   , KC_X  , KC_COMM, KC_LBRC, KC_SCLN, _______, KC_CAPS, FKEYS, _______, KC_P  , KC_D   , KC_W  , KC_M, KC_K, KC_RSFT,
                                 ADJUST , KC_LGUI, ALT_ENT, KC_BSPC, NAV    , SYM  , KC_SPC ,KC_RALT, KC_RGUI, KC_APP
     ),
 
