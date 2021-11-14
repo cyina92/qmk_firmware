@@ -288,6 +288,7 @@ void oled_task_user(void) {
                 break;
             case _NUM:
                 oled_write_P(PSTR("Number\n"), false);
+                break;
             default:
                 oled_write_P(PSTR("Undefined\n"), false);
         }
