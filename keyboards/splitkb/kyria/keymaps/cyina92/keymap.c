@@ -22,6 +22,7 @@ enum layers {
     _SYM,
     _FUNCTION,
     _ADJUST,
+    _NUMS,
 };
 
 
@@ -34,6 +35,8 @@ enum layers {
 #define FKEYS    MO(_FUNCTION)
 #define ADJUST   MO(_ADJUST)
 
+#define NUMS    MO (_NUMS)
+
 #define CTL_ESC  MT(MOD_LCTL, KC_ESC)
 #define CTL_QUOT MT(MOD_RCTL, KC_QUOTE)
 #define CTL_MINS MT(MOD_RCTL, KC_MINUS)
@@ -45,8 +48,29 @@ enum layers {
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+ /*
+ * Base Layer: Vou
+ *
+ * ,-------------------------------------------.                              ,-------------------------------------------.
+ * |  Tab   |   V  |   .  |   O  |   U  |   Ä  |                              |   Q  |   G  |   L  |   H  |   F  |   J    |
+ * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
+ * |Ctrl/Esc|   C  |   A  |   E  |   I  |   Z  |                              |   B  |   T  |   R  |   N  |   S  |   ß    |
+ * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
+ * | LShift |   Y  |   X  |   ,  |   Ü  |   Ö  |      |CapsLk|  |F-keys|      |   P  |   D  |   W  |   M  |   K  | RShift |
+ * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
+ *                        |Adjust| LGUI | LAlt/| Bksp | Nav  |  | Sym  | Space| AltGr| RGUI | Menu |
+ *                        |      |      | Enter|      |      |  |      |      |      |      |      |
+ *                        `----------------------------------'  `----------------------------------'
+ */
+    [_VOU] = LAYOUT(
+      KC_TAB , KC_V   , KC_DOT, KC_O   , KC_U   , KC_QUOT,                                   KC_Q  , KC_G   , KC_L  , KC_H, KC_F, KC_J   ,
+      CTL_ESC, KC_C   , KC_A  , KC_E   , KC_I   , KC_Z   ,                                   KC_B  , KC_T   , KC_R  , KC_N, KC_S, KC_MINS,
+      KC_LSFT, KC_Y   , KC_X  , KC_COMM, KC_LBRC, KC_SCLN, _______, KC_CAPS, FKEYS, _______, KC_P  , KC_D   , KC_W  , KC_M, KC_K, KC_RSFT,
+                                ADJUST , KC_LGUI, ALT_ENT, KC_BSPC, NAV    , SYM  , KC_SPC ,KC_RALT, KC_RGUI, KC_APP
+    ),
+
 /*
- * Base Layer: QWERTY
+ * QWERTY
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
  * |  Tab   |   Q  |   W  |   E  |   R  |   T  |                              |   Y  |   U  |   I  |   O  |   P  |  Bksp  |
@@ -64,6 +88,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      CTL_ESC , KC_A ,  KC_S   ,  KC_D  ,   KC_F ,   KC_G ,                                        KC_H,   KC_J ,  KC_K ,   KC_L ,KC_SCLN,CTL_QUOT,
      KC_LSFT , KC_Z ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B , KC_LBRC,KC_CAPS,     FKEYS  , KC_RBRC, KC_N,   KC_M ,KC_COMM, KC_DOT ,KC_SLSH, KC_RSFT,
                                 ADJUST , KC_LGUI, ALT_ENT, KC_SPC , NAV   ,     SYM    , KC_SPC ,KC_RALT, KC_RGUI, KC_APP
+    ),
+
+/*
+ * NUMS (Numbers and Media) (DE Layout)
+ *
+ * ,-------------------------------------------.                              ,-------------------------------------------.
+ * |        |      |      |      |      |      |                              |   .  |   7  |   8  |   9  |   -  |   /    |
+ * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
+ * |        |      |      |      |      |      |                              |   =  |   4  |   5  |   4  |   +  |   *    |
+ * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
+ * |        |      |      |      |      |      |      |      |  |      |      |   0  |   1  |   2  |   3  |   ,  | ENTER  |
+ * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
+ *                        |      |      |      |      |      |  |      |      |      |      |      |
+ *                        |      |      |      |      |      |  |      |      |      |      |      |
+ *                        `----------------------------------'  `----------------------------------'
+ */
+    [_NUMS] = LAYOUT(
+      _______, _______, _______, _______, _______, _______,                                     KC_PCMM, KC_P7, KC_P8, KC_P9, KC_PMNS, KC_PSLS,
+      _______, _______, _______, _______, _______, _______,                                     KC_PEQL, KC_P4, KC_P5, KC_P6, KC_PPLS, KC_PAST,
+      _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_P0  , KC_P1, KC_P2, KC_P3, KC_PDOT, KC_PENT,
+                                 _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
 
 /*
@@ -148,27 +193,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, _______, _______, QWERTY , _______, _______,                                    RGB_TOG, RGB_SAI, RGB_HUI, RGB_VAI,  RGB_MOD, _______,
       _______, _______, _______, _______, _______, _______,_______, _______, _______, _______, _______, RGB_SAD, RGB_HUD, RGB_VAD, RGB_RMOD, _______,
                                  _______, _______, _______,_______, _______, _______, _______, _______, _______, _______
-    ),
-
-/*
- * Vou
- *
- * ,-------------------------------------------.                              ,-------------------------------------------.
- * |  Tab   |   V  |   .  |   O  |   U  |   Ä  |                              |   Q  |   G  |   L  |   H  |   F  |   J    |
- * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |Ctrl/Esc|   C  |   A  |   E  |   I  |   Z  |                              |   B  |   T  |   R  |   N  |   S  |   ß    |
- * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * | LShift |   Y  |   X  |   ,  |   Ü  |   Ö  |      |CapsLk|  |F-keys|      |   P  |   D  |   W  |   M  |   K  | RShift |
- * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |Adjust| LGUI | LAlt/| Bksp | Nav  |  | Sym  | Space| AltGr| RGUI | Menu |
- *                        |      |      | Enter|      |      |  |      |      |      |      |      |
- *                        `----------------------------------'  `----------------------------------'
- */
-    [_VOU] = LAYOUT(
-      KC_TAB , KC_V   , KC_DOT, KC_O   , KC_U   , KC_QUOT,                                   KC_Q  , KC_G   , KC_L  , KC_H, KC_F, KC_J   ,
-      CTL_ESC, KC_C   , KC_A  , KC_E   , KC_I   , KC_Z   ,                                   KC_B  , KC_T   , KC_R  , KC_N, KC_S, KC_MINS,
-      KC_LSFT, KC_Y   , KC_X  , KC_COMM, KC_LBRC, KC_SCLN, _______, KC_CAPS, FKEYS, _______, KC_P  , KC_D   , KC_W  , KC_M, KC_K, KC_RSFT,
-                                ADJUST , KC_LGUI, ALT_ENT, KC_BSPC, NAV    , SYM  , KC_SPC ,KC_RALT, KC_RGUI, KC_APP
     ),
 
 // /*
