@@ -20,10 +20,10 @@ enum layers {
     _VOU = 0,
     _QWERTY,
     _NAV,
+    _NUM,
     _SYM,
     _FUNCTION,
     _ADJUST,
-    _NUM,
 };
 
 
