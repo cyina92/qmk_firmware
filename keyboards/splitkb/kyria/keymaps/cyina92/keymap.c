@@ -67,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
  * | lShift |   Y  |   X  |   ,  |   Ü  |   Ö  | FKeys|Adjust|  | Del  |      |   P  |   D  |   W  |   M  |   K  |   -    |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |      |      | Num  | Space| Enter|  | Bspc | Space| Sym  | Nav  | AltGr|
+ *                        |  Alt | lCTL | Num  | Space| Enter|  | Bspc | Space| Sym  | Nav  | AltGr|
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
@@ -75,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_ESC , KC_V  , KC_DOT, KC_O   , KC_U   , DE_ADIA,                                    KC_Q, KC_G  , KC_L   , KC_H  , KC_F  , KC_J,
       KC_TAB , HOME_C, HOME_A, HOME_E , HOME_I , DE_Z   ,                                    KC_B, HOME_T, HOME_R , HOME_N, HOME_S, DE_SS,
       KC_LSFT, DE_Y  , KC_X  , KC_COMM, DE_UDIA, DE_ODIA, FKEYS , ADJUST , KC_DEL , _______, KC_P, KC_D  , KC_W   , KC_M  , KC_K  , KC_MINS,
-                               _______, _______, NUM    , KC_SPC, KC_ENT , KC_BSPC, KC_SPC , SYM , _NAV  , KC_RALT
+                               KC_LALT, KC_LCTL, NUM    , KC_SPC, KC_ENT , KC_BSPC, KC_SPC , SYM , _NAV  , KC_RALT
     ),
 
 /*
