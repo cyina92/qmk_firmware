@@ -24,6 +24,10 @@
 #    define RGBLIGHT_LIMIT_VAL 150
 #endif
 
+ /* Change USB Polling Rate to 1000hz and a larger keys per scan for elite gaming*/
+#define USB_POLLING_INTERVAL_MS 1
+#define QMK_KEYS_PER_SCAN 12
+
 // Configure the global tapping term (default: 200ms)
 #define TAPPING_TERM 200
 

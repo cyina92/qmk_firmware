@@ -41,9 +41,6 @@ enum layers {
 #define CTL_QUOT MT(MOD_RCTL, KC_QUOTE)
 #define CTL_MINS MT(MOD_RCTL, KC_MINUS)
 #define ALT_ENT  MT(MOD_LALT, KC_ENT)
-#define SPC_SFT  MT(MOD_LSFT, KC_SPC)
-
-#define NAV_SPC  LT(_NAV, KC_SPC)
 
 // Left-hand home row mods
 #define HOME_C LGUI_T(KC_C)
@@ -55,13 +52,7 @@ enum layers {
 #define HOME_T RSFT_T(KC_T)
 #define HOME_R RCTL_T(KC_R)
 #define HOME_N LALT_T(KC_N)
-#define HOME_S RGUI_T(KC_S)
-
-
-
-// Note: LAlt/Enter (ALT_ENT) is not the same thing as the keyboard shortcut Alt+Enter.
-// The notation `mod/tap` denotes a key that activates the modifier `mod` when held down, and
-// produces the key `tap` when tapped (i.e. pressed and released).
+#define HOME_S RGUI_T(KC_S)     
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -71,20 +62,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-------------------------------------------.                              ,-------------------------------------------.
  * | ESC    |   V  |   .  |   O  |   U  |   Ä  |                              |   Q  |   G  |   L  |   H  |   F  |   J    |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * | lShift |   C  |   A  |   E  |   I  |   Z  |                              |   B  |   T  |   R  |   N  |   S  |   ß    |
- * |        |  GUI |  Alt |  CTL |  SFT |      |                              |      |  SFT |  CTL |  Alt |  GUI |        |
+ * | Tab    |   C  |   A  |   E  |   I  |   Z  |                              |   B  |   T  |   R  |   N  |   S  |   ß    |
+ * |        |  GUI |  Alt | lCTL |lShift|      |                              |      |lShift| lCTL |  Alt |  GUI |        |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * | lCtrl  |   Y  |   X  |   ,  |   Ü  |   Ö  | FKeys|Adjust|  | Del  |      |   P  |   D  |   W  |   M  |   K  | rShift |
+ * | lShift |   Y  |   X  |   ,  |   Ü  |   Ö  | FKeys|Adjust|  | Del  |      |   P  |   D  |   W  |   M  |   K  |   -    |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |  GUI |  Alt | Num  |lShift| Enter|  | Bspc | Space| Sym  | Tab  | AltGr|
- *                        |      |      |      | Space|      |  |      | Nav  |      |      |      |
+ *                        |      |      | Num  | Space| Enter|  | Bspc | Space| Sym  | Nav  | AltGr|
+ *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_VOU] = LAYOUT(
-      KC_ESC , KC_V  , KC_DOT, KC_O   , KC_U   , DE_ADIA,                                     KC_Q, KC_G  , KC_L   , KC_H  , KC_F  , KC_J,
-      KC_LSFT, HOME_C, HOME_A, HOME_E , HOME_I , DE_Z   ,                                     KC_B, HOME_T, HOME_R , HOME_N, HOME_S, DE_SS,
-      KC_LCTL, DE_Y  , KC_X  , KC_COMM, DE_UDIA, DE_ODIA, FKEYS  , ADJUST , KC_DEL , _______, KC_P, KC_D  , KC_W   , KC_M  , KC_K  , KC_RSFT,
-                               KC_LGUI, KC_LALT, NUM    , SPC_SFT, KC_ENT , KC_BSPC, NAV_SPC, SYM , KC_TAB, KC_RALT
+      KC_ESC , KC_V  , KC_DOT, KC_O   , KC_U   , DE_ADIA,                                    KC_Q, KC_G  , KC_L   , KC_H  , KC_F  , KC_J,
+      KC_TAB , HOME_C, HOME_A, HOME_E , HOME_I , DE_Z   ,                                    KC_B, HOME_T, HOME_R , HOME_N, HOME_S, DE_SS,
+      KC_LSFT, DE_Y  , KC_X  , KC_COMM, DE_UDIA, DE_ODIA, FKEYS , ADJUST , KC_DEL , _______, KC_P, KC_D  , KC_W   , KC_M  , KC_K  , KC_MINS,
+                               _______, _______, NUM    , KC_SPC, KC_ENT , KC_BSPC, KC_SPC , SYM , _NAV  , KC_RALT
     ),
 
 /*
@@ -181,7 +172,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
  * |        |  F1  |  F2  |  F3  |  F4  |      |      |      |  |      |      |      |      |      |      |      |        |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |      |      |      |      |      |  |      |      |      |      |      |
+ *                        |  GUI |  Alt | lCTL |lShift|      |  |      |      |      |      |      |
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
@@ -189,7 +180,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, KC_F9  , KC_F10 , KC_F11 , KC_F12 , _______,                                     _______, _______, _______, _______, _______, _______,
         _______, KC_F5  , KC_F6  , KC_F7  , KC_F8  , _______,                                     _______, KC_RSFT, KC_RCTL, KC_LALT, KC_RGUI, _______,
         _______, KC_F1  , KC_F2  , KC_F3  , KC_F4  , _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-                                   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+                                   KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, _______, _______, _______, _______, _______, _______
     ),
 
     // --------------------------------------------------------------------------------
