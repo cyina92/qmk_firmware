@@ -15,6 +15,7 @@
  */
 #include QMK_KEYBOARD_H
 #include "../../../../../quantum/keymap_extras/keymap_german.h"
+#include "../../../../../quantum/keymap_extras/sendstring_german.h"
 
 enum layers {
     _VOU = 0,
@@ -26,6 +27,10 @@ enum layers {
     _ADJUST,
 };
 
+enum custome_keycodes {
+    CARET = SAFE_RANGE,
+    G_ACC,
+};
 
 // Aliases for readability
 #define VOU      DF(_VOU)
@@ -52,7 +57,7 @@ enum layers {
 #define HOME_T RSFT_T(KC_T)
 #define HOME_R RCTL_T(KC_R)
 #define HOME_N LALT_T(KC_N)
-#define HOME_S RGUI_T(KC_S)     
+#define HOME_S RGUI_T(KC_S)
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -75,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_ESC , KC_V  , KC_DOT, KC_O   , KC_U   , DE_ADIA,                                    KC_Q, KC_G  , KC_L   , KC_H  , KC_F  , KC_J,
       KC_TAB , HOME_C, HOME_A, HOME_E , HOME_I , DE_Z   ,                                    KC_B, HOME_T, HOME_R , HOME_N, HOME_S, DE_SS,
       KC_LSFT, DE_Y  , KC_X  , KC_COMM, DE_UDIA, DE_ODIA, FKEYS , ADJUST , KC_DEL , _______, KC_P, KC_D  , KC_W   , KC_M  , KC_K  , KC_MINS,
-                               KC_LALT, KC_LCTL, NUM    , KC_SPC, KC_ENT , KC_BSPC, KC_SPC , SYM , _NAV  , KC_RALT
+                               KC_LALT, KC_LCTL, NUM    , KC_SPC, KC_ENT , KC_BSPC, KC_SPC , SYM , NAV  , KC_RALT
     ),
 
 /*
@@ -103,20 +108,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * Symbols Layer (DE Layout)
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
- * |        |      |      |      |      |      |                              |      |      |      |      |      |        |
+ * |        |   @  |   %  |   {  |   }  |   ^  |                              |   !  |   <  |   >  |   =  |   &  |   €    |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |        |      |      |      |      |      |                              |      |      |      |      |      |        |
+ * |        |   |  |   `  |   (  |   )  |   *  |                              |   ?  |   /  |   :  |   -  |   _  |   µ    |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |        |      |      |      |      |      |      |      |  |      |      |      |      |      |      |      |        |
+ * |        |   ~  |   #  |   [  |   ]  |   $  |      |      |  |      |      |   +  |   "  |   '  |   \  |   ;  |   °    |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_SYM] = LAYOUT(
-      _______, _______, _______, _______, _______, _______,                                     _______, _______, _______, _______, _______, _______,
-      _______, _______, _______, _______, _______, _______,                                     _______, _______, _______, _______, _______, _______,
-      _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+      _______, DE_AT  , DE_PERC, DE_LCBR, DE_RCBR, CARET  ,                                     DE_EXLM, DE_LABK, DE_RABK, DE_EQL , DE_AMPR, DE_EURO,
+      _______, DE_PIPE, G_ACC  , DE_LPRN, DE_RPRN, DE_ASTR,                                     DE_QUES, DE_SLSH, DE_COLN, DE_MINS, DE_UNDS, DE_MICR,
+      _______, DE_TILD, DE_HASH, DE_LBRC, DE_RBRC, DE_DLR , _______, _______, _______, _______, DE_PLUS, DE_DQUO, DE_QUOT, DE_BSLS, DE_SCLN, DE_DEG,
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
 
@@ -183,29 +188,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                    KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, _______, _______, _______, _______, _______, _______
     ),
 
-    // --------------------------------------------------------------------------------
-
-/*
- * Sym Layer: Numbers and symbols
- *
- * ,-------------------------------------------.                              ,-------------------------------------------.
- * |    `   |  1   |  2   |  3   |  4   |  5   |                              |   6  |  7   |  8   |  9   |  0   |   =    |
- * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |    ~   |  !   |  @   |  #   |  $   |  %   |                              |   ^  |  &   |  *   |  (   |  )   |   +    |
- * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |    |   |   \  |  :   |  ;   |  -   |  [   |  {   |      |  |      |   }  |   ]  |  _   |  ,   |  .   |  /   |   ?    |
- * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |      |      |      |      |      |  |      |      |      |      |      |
- *                        |      |      |      |      |      |  |      |      |      |      |      |
- *                        `----------------------------------'  `----------------------------------'
- */
-    //[_SYM] = LAYOUT(
-    //  KC_GRV ,   KC_1 ,   KC_2 ,   KC_3 ,   KC_4 ,   KC_5 ,                                       KC_6 ,   KC_7 ,   KC_8 ,   KC_9 ,   KC_0 , KC_EQL ,
-    // KC_TILD , KC_EXLM,  KC_AT , KC_HASH,  KC_DLR, KC_PERC,                                     KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PLUS,
-    // KC_PIPE , KC_BSLS, KC_COLN, KC_SCLN, KC_MINS, KC_LBRC, KC_LCBR, _______, _______, KC_RCBR, KC_RBRC, KC_UNDS, KC_COMM,  KC_DOT, KC_SLSH, KC_QUES,
-    //                             _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
-    //),
-
 /*
  * QWERTY
  *
@@ -248,6 +230,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
 //     ),
 };
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case CARET:
+            if (record->event.pressed) {
+                SEND_STRING("^ ");
+            }
+            break;
+        case G_ACC:
+            if (record->event.pressed) {
+                SEND_STRING("` ");
+            }
+            break;
+    }
+    return true;
+}
 
 /* The default OLED and rotary encoder code can be found at the bottom of qmk_firmware/keyboards/splitkb/kyria/rev1/rev1.c
  * These default settings can be overriden by your own settings in your keymap.c
