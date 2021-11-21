@@ -131,20 +131,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * Navigation Layer
   *
   * ,-------------------------------------------.                              ,-------------------------------------------.
-  * |        |      | MW_L | MS_U | MW_R | MW_U |                              | PgUp | MB_1 | Up   | MB_2 |Insert| ScrlLk |
+  * |        |      | MW_L | MS_U | MW_R | MW_U |                              | PgUp | MB_1 | MB_2 | Print|Insert| ScrlLk |
   * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
-  * |        |      | MS_L | MS_D | MS_R | MW_D |                              | PgDn | Left | Down | Right|Delete| CapsLk |
+  * |        |      | MS_L | MS_D | MS_R | MW_D |                              | PgDn | Left | Down | Up   | Right| Delete | 
   * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
-  * |        |      | MA_0 | MA_1 | MA_2 | MB_3 |      |      |  |      |      | Pause| Home |      | End  | Print|        |
+  * |        |      | MA_0 | MA_1 | MA_2 | MB_3 |      |      |  |      |      | Pause| Home | End  |      |      | CapsLk |
   * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
   *                        |      |      |      |      |      |  |      |      |      |      |      |
   *                        |      |      |      |      |      |  |      |      |      |      |      |
   *                        `----------------------------------'  `----------------------------------'
   */
      [_NAV] = LAYOUT(
-       _______, _______, KC_WH_L, KC_MS_U, KC_WH_R, KC_WH_U,                                     KC_PGUP , KC_BTN1, KC_UP  , KC_BTN2, KC_INS , KC_SLCK,
-       _______, _______, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D,                                     KC_PGDN , KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL , KC_CAPS,
-       _______, _______, KC_ACL0, KC_ACL1, KC_ACL2, KC_BTN3, _______, _______, _______, _______, KC_PAUSE, KC_HOME, _______, KC_END , KC_PSCR, _______,
+       _______, _______, KC_WH_L, KC_MS_U, KC_WH_R, KC_WH_U,                                     KC_PGUP , KC_BTN1, KC_BTN2, KC_PSCR, KC_INS , KC_SLCK,
+       _______, _______, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D,                                     KC_PGDN , KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, KC_DEL ,
+       _______, _______, KC_ACL0, KC_ACL1, KC_ACL2, KC_BTN3, _______, _______, _______, _______, KC_PAUSE, KC_HOME, KC_END , _______, KC_PSCR, KC_CAPS,
                                   _______, _______, _______, _______, _______, _______, _______, _______ , _______, _______
      ),
 
