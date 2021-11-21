@@ -47,9 +47,9 @@ enum custome_keycodes {
 #define CTL_MINS MT(MOD_RCTL, KC_MINUS)
 #define ALT_ENT  MT(MOD_LALT, KC_ENT)
 
-#define SPC_NAV LT(_NAV, KC_SPC)
-#define BSP_NUM LT(_NUM, KC_BSPC)
-#define BSP_SYM LT(_SYM, KC_BSPC)
+#define BSP_NAV LT(_NAV, KC_BSPC)
+#define SPC_NUM LT(_NUM, KC_SPC)
+#define SPC_SYM LT(_SYM, KC_SPC)
 
 // Left-hand home row mods
 #define HOME_C LGUI_T(KC_C)
@@ -76,15 +76,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
  * | lShift |   Y  |   X  |   ,  |   Ü  |   Ö  | FKeys|Adjust|  | Del  |      |   P  |   D  |   W  |   M  |   K  |   -    |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |  Alt | lCTL | Bspc | Space| Enter|  | Enter| Space| Bspc |      | AltGr|
+ *                        |  Alt | lCTL | Space| Bspc | Enter|  | Enter| Bspc | Space|      | AltGr|
  *                        |      |      | Num  |      |      |  |      | Nav  | Sym  |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_VOU] = LAYOUT(
       KC_ESC , DE_V  , DE_DOT, DE_O   , DE_U   , DE_ADIA,                                    DE_Q    , DE_G   , DE_L   , DE_H  , DE_F  , DE_J,
       KC_TAB , HOME_C, HOME_A, HOME_E , HOME_I , DE_Z   ,                                    DE_B    , HOME_T , HOME_R , HOME_N, HOME_S, DE_SS,
-      KC_LSFT, DE_Y  , DE_X  , DE_COMM, DE_UDIA, DE_ODIA, FKEYS , ADJUST , KC_DEL , _______, DE_P    , DE_D   , DE_W   , DE_M  , DE_K  , DE_MINS,
-                               KC_LALT, KC_LCTL, BSP_NUM, KC_SPC, KC_ENT , KC_ENT , SPC_NAV, BSP_SYM , _______, KC_RALT
+      KC_LSFT, DE_Y  , DE_X  , DE_COMM, DE_UDIA, DE_ODIA, FKEYS  , ADJUST , KC_DEL , _______, DE_P    , DE_D   , DE_W   , DE_M  , DE_K  , DE_MINS,
+                               KC_LALT, KC_LCTL, SPC_NUM, KC_BSPC, KC_ENT , KC_ENT , BSP_NAV, SPC_SYM , _______, KC_RALT
     ),
 
 /*
@@ -97,18 +97,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
  * |        |      |      | VolDn| Mute |      |      |      |  |      | NumLk|   0  |   1  |   2  |   3  |   ,  | Enter  |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |      |      |      |      |      |  |      |      |      |      |      |
+ *                        |      |      |      |      |      |  | Enter| Bspc | Space|      |      |
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_NUM] = LAYOUT(
-      _______, _______, _______, KC_VOLU, _______, _______,                                     DE_DOT , DE_7, DE_8, DE_9, DE_MINS, DE_SLSH,
-      _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,                                     DE_EQL , DE_4, DE_5, DE_6, DE_PLUS, DE_ASTR,
-      _______, _______, _______, KC_VOLD, KC_MUTE, _______, _______, _______, _______, KC_NLCK, DE_0   , DE_1, DE_2, DE_3, DE_COMM, KC_ENT,
-                                 _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+      _______, _______, _______, KC_VOLU, _______, _______,                                     DE_DOT , DE_7   , DE_8   , DE_9, DE_MINS, DE_SLSH,
+      _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,                                     DE_EQL , DE_4   , DE_5   , DE_6, DE_PLUS, DE_ASTR,
+      _______, _______, _______, KC_VOLD, KC_MUTE, _______, _______, _______, _______, KC_NLCK, DE_0   , DE_1   , DE_2   , DE_3, DE_COMM, KC_ENT,
+                                 _______, _______, _______, _______, _______, KC_ENT , KC_BSPC, KC_SPC, _______, _______
     ),
 
-/*
+/*S
  * Symbols Layer (DE Layout)
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
@@ -118,7 +118,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
  * |        |   ~  |   #  |   [  |   ]  |   $  |      |      |  |      |      |   +  |   "  |   '  |   \  |   ;  |   °    |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |      |      |      |      |      |  |      |      |      |      |      |
+ *                        |      |      | Space| Bspc | Enter|  |      |      |      |      |      |
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
@@ -126,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, DE_AT  , DE_PERC, DE_LCBR, DE_RCBR, CARET  ,                                     DE_EXLM, DE_LABK, DE_RABK, DE_EQL , DE_AMPR, DE_EURO,
       _______, DE_PIPE, G_ACC  , DE_LPRN, DE_RPRN, DE_ASTR,                                     DE_QUES, DE_SLSH, DE_COLN, DE_MINS, DE_UNDS, DE_MICR,
       _______, DE_TILD, DE_HASH, DE_LBRC, DE_RBRC, DE_DLR , _______, _______, _______, _______, DE_PLUS, DE_DQUO, DE_QUOT, DE_BSLS, DE_SCLN, DE_DEG,
-                                 _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+                                 _______, _______, KC_SPC , KC_BSPC, KC_ENT , _______, _______, _______, _______, _______
     ),
 
  /*
@@ -139,7 +139,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
   * |        |      | MA_0 | MA_1 | MA_2 | MB_3 |      |      |  |      |      | Pause| Home | End  |      |      | CapsLk |
   * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
-  *                        |      |      | Bspc | Space| Enter|  |      |      |      |      |      |
+  *                        |      |      | Space| Bspc | Enter|  |      |      |      |      |      |
   *                        |      |      |      |      |      |  |      |      |      |      |      |
   *                        `----------------------------------'  `----------------------------------'
   */
@@ -147,7 +147,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        _______, _______, KC_WH_L, KC_MS_U, KC_WH_R, KC_WH_U,                                     KC_PGUP , KC_BTN1, KC_BTN2, KC_PSCR, KC_INS , KC_SLCK,
        _______, _______, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D,                                     KC_PGDN , KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, KC_DEL ,
        _______, _______, KC_ACL0, KC_ACL1, KC_ACL2, KC_BTN3, _______, _______, _______, _______, KC_PAUSE, KC_HOME, KC_END , _______, KC_PSCR, KC_CAPS,
-                                  _______, _______, KC_BSPC, KC_SPC , KC_ENT , _______, _______, _______ , _______, _______
+                                  _______, _______, KC_SPC , KC_BSPC, KC_ENT , _______, _______, _______ , _______, _______
      ),
 
 /*
