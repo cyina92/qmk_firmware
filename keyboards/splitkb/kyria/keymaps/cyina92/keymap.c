@@ -79,9 +79,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [_VOU] = LAYOUT(
-      KC_ESC , KC_V  , KC_DOT, KC_O   , KC_U   , DE_ADIA,                                    KC_Q, KC_G  , KC_L   , KC_H  , KC_F  , KC_J,
-      KC_TAB , HOME_C, HOME_A, HOME_E , HOME_I , DE_Z   ,                                    KC_B, HOME_T, HOME_R , HOME_N, HOME_S, DE_SS,
-      KC_LSFT, DE_Y  , KC_X  , KC_COMM, DE_UDIA, DE_ODIA, FKEYS , ADJUST , KC_DEL , _______, KC_P, KC_D  , KC_W   , KC_M  , KC_K  , DE_MINS,
+      KC_ESC , DE_V  , DE_DOT, DE_O   , DE_U   , DE_ADIA,                                    DE_Q, DE_G  , DE_L   , DE_H  , DE_F  , DE_J,
+      KC_TAB , HOME_C, HOME_A, HOME_E , HOME_I , DE_Z   ,                                    DE_B, HOME_T, HOME_R , HOME_N, HOME_S, DE_SS,
+      KC_LSFT, DE_Y  , DE_X  , DE_COMM, DE_UDIA, DE_ODIA, FKEYS , ADJUST , KC_DEL , _______, DE_P, DE_D  , DE_W   , DE_M  , DE_K  , DE_MINS,
                                KC_LALT, KC_LCTL, NUM    , KC_SPC, KC_ENT , KC_BSPC, SPC_NAV, SYM , ______, KC_RALT
     ),
 
@@ -100,9 +100,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [_NUM] = LAYOUT(
-      _______, _______, _______, KC_VOLU, _______, _______,                                     KC_PCMM, KC_P7, KC_P8, KC_P9, KC_PMNS, KC_PSLS,
-      _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,                                     KC_PEQL, KC_P4, KC_P5, KC_P6, KC_PPLS, KC_PAST,
-      _______, _______, _______, KC_VOLD, KC_MUTE, _______, _______, _______, _______, KC_NLCK, KC_P0  , KC_P1, KC_P2, KC_P3, KC_PDOT, KC_PENT,
+      _______, _______, _______, KC_VOLU, _______, _______,                                     DE_DOT , DE_7, DE_8, DE_9, DE_MINS, DE_SLSH,
+      _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,                                     DE_EQL , DE_4, DE_5, DE_6, DE_PLUS, DE_ASTR,
+      _______, _______, _______, KC_VOLD, KC_MUTE, _______, _______, _______, _______, KC_NLCK, DE_0   , DE_1, DE_2, DE_3, DE_COMM, KC_ENT,
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
 
