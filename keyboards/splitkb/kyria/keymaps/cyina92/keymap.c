@@ -71,10 +71,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-------------------------------------------.                              ,-------------------------------------------.
  * | ESC    |   V  |   .  |   O  |   U  |   Ä  |                              |   Q  |   G  |   L  |   H  |   F  |   J    |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * | Tab    |   C  |   A  |   E  |   I  |   Z  |                              |   B  |   T  |   R  |   N  |   S  |   ß    |
+ * | Tab    |   C  |   A  |   E  |   I  |   Y  |                              |   B  |   T  |   R  |   N  |   S  |   ß    |
  * |        |  GUI |  Alt | lCTL |lShift|      |                              |      |lShift| lCTL |  Alt |  GUI |        |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * | lShift |   Y  |   X  |   ,  |   Ü  |   Ö  | FKeys|Adjust|  | Del  |      |   P  |   D  |   W  |   M  |   K  |   -    |
+ * | lShift |   Z  |   X  |   ,  |   Ü  |   Ö  | FKeys|Adjust|  | Del  |      |   P  |   D  |   W  |   M  |   K  |   -    |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
  *                        |  Alt | lCTL | Space| Bspc | Enter|  | Enter| Bspc | Space| rCTL | AltGr|
  *                        |      |      | Num  |      |      |  |      | Nav  | Sym  |      |      |
@@ -82,8 +82,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
     [_VOU] = LAYOUT(
       KC_ESC , DE_V  , DE_DOT, DE_O   , DE_U   , DE_ADIA,                                     DE_Q    , DE_G   , DE_L   , DE_H  , DE_F  , DE_J,
-      KC_TAB , HOME_C, HOME_A, HOME_E , HOME_I , DE_Z   ,                                     DE_B    , HOME_T , HOME_R , HOME_N, HOME_S, DE_SS,
-      KC_LSFT, DE_Y  , DE_X  , DE_COMM, DE_UDIA, DE_ODIA, FKEYS  , ADJUST , KC_DEL , _______, DE_P    , DE_D   , DE_W   , DE_M  , DE_K  , DE_MINS,
+      KC_TAB , HOME_C, HOME_A, HOME_E , HOME_I , DE_Y   ,                                     DE_B    , HOME_T , HOME_R , HOME_N, HOME_S, DE_SS,
+      KC_LSFT, DE_Z  , DE_X  , DE_COMM, DE_UDIA, DE_ODIA, FKEYS  , ADJUST , KC_DEL , _______, DE_P    , DE_D   , DE_W   , DE_M  , DE_K  , DE_MINS,
                                KC_LALT, KC_LCTL, SPC_NUM, KC_BSPC, KC_ENT , KC_ENT , BSP_NAV, SPC_SYM , KC_RCTL, KC_RALT
     ),
 
