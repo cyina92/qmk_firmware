@@ -135,7 +135,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * ,-------------------------------------------.                              ,-------------------------------------------.
   * |        |      | MW_L | MS_U | MW_R | MW_U |                              | PgUp | MB_1 | MB_2 | Print|Insert| ScrlLk |
   * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
-  * |        |      | MS_L | MS_D | MS_R | MW_D |                              | PgDn | Left | Down | Up   | Right| Delete | 
+  * |        |      | MS_L | MS_D | MS_R | MW_D |                              | PgDn | Left | Down | Up   | Right| Delete |
   * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
   * |        |      | MA_0 | MA_1 | MA_2 | MB_3 |      |      |  |      |      | Pause| Home | End  |      |      | CapsLk |
   * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
@@ -253,7 +253,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 /* The default OLED and rotary encoder code can be found at the bottom of qmk_firmware/keyboards/splitkb/kyria/rev1/rev1.c
  * These default settings can be overriden by your own settings in your keymap.c
- * For your convenience, here's a copy of those settings so that you can uncomment them if you wish to apply your own modifications.
+ * For your convenience, here's a copy of those settings so     that you can uncomment them if you wish to apply your own modifications.
  * DO NOT edit the rev1.c file; instead override the weakly defined default functions by your own.
  */
 
